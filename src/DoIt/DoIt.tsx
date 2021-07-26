@@ -3,6 +3,7 @@ import {randomBytes} from "crypto";
 import ITask from "./Tasks/ITask";
 import Tasks from "./Tasks/Tasks";
 import "./DoIt.css";
+import styles from "./Tasks.module.scss";
 
 function DoIt() {
     let [newTask, setNewTask] = useState<string>('');
@@ -11,7 +12,7 @@ function DoIt() {
 
     return (
         <div className="DoIt">
-            <h1>Do It</h1>
+            <h1 className={styles.Tasks}>Do It</h1>
 
             <input className={"DoIt__newTask"}
                    type="text"

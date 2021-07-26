@@ -1,0 +1,27 @@
+.Tasks {
+    padding: 15px;
+
+    &__item {
+        &:not(:first-child) {
+            margin-top: 5px;
+        }
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        &_choose {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+    }
+
+    &__itemValue {
+        display: inline-block;
+        width: 90%;
+        padding: 3px;
+    }
+
+    &__itemRemove {
+        float: right;
+    }
+}
