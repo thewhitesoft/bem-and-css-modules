@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import {randomBytes} from "crypto";
-import ITask from "./ITask";
-import Tasks from "./Tasks";
+import ITask from "./Tasks/ITask";
+import Tasks from "./Tasks/Tasks";
+import "./DoIt.css";
 
 function DoIt() {
     let [newTask, setNewTask] = useState<string>('');
@@ -12,7 +13,8 @@ function DoIt() {
         <div className="DoIt">
             <h1>Do It</h1>
 
-            <input type="text"
+            <input className={"DoIt__newTask"}
+                   type="text"
                    minLength={1}
                    placeholder={"Новая задача"}
                    value={newTask}
@@ -31,26 +33,29 @@ function DoIt() {
                        }
                    }/>
 
-            <Tasks tasks={tasks}
-                   onRemove={(task) => setTasks(prev => {
-                       let tasks = [...prev];
+            <Tasks
+                className={"DoIt__tasks"}
+                tasks={tasks}
+                onRemove={(task) => setTasks(prev => {
+                    let tasks = [...prev];
 
-                       tasks.splice(prev.indexOf(task), 1);
+                    tasks.splice(prev.indexOf(task), 1);
 
-                       return tasks;
-                   })}
-                   onDoubleClick={(task) => setTasks(prev => {
-                       let tasks = [...prev];
+                    return tasks;
+                })}
+                onDoubleClick={(task) => setTasks(prev => {
+                    let tasks = [...prev];
 
-                       tasks.splice(prev.indexOf(task), 1);
-                       setSolvedTasks([task].concat(solvedTasks))
+                    tasks.splice(prev.indexOf(task), 1);
+                    setSolvedTasks([task].concat(solvedTasks))
 
-                       return tasks;
-                   })}/>
+                    return tasks;
+                })}/>
 
 
             {
                 solvedTasks.length !== 0 && <Tasks
+                    className={"DoIt__solvedTasks"}
                     tasks={solvedTasks}
                     onRemove={(task) => setSolvedTasks(prev => {
                         let tasks = [...prev];
