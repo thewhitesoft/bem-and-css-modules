@@ -1,3 +1,13 @@
 .DoIt {
-  text-align: center;
+}
+
+.DoIt__newTask {
+}
+
+.DoIt__tasks {
+    margin-top: 20px;
+}
+
+.DoIt__solvedTasks {
+    margin-top: 40px;
 }
